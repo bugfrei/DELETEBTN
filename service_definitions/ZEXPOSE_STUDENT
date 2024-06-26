@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition für Actins'
+define service ZEXPOSE_STUDENT {
+  expose ZC_STUDENT;
+}

@@ -1,0 +1,158 @@
+@Metadata.layer: #PARTNER
+
+@UI: { 
+  headerInfo: { 
+    typeName: 'Student',
+    typeNamePlural: 'Students',
+    title: { 
+      type: #STANDARD,
+      label: 'Student',
+      value: 'Id'
+    }
+  }
+}
+
+
+annotate entity ZC_STUDENT with
+{
+  @UI.facet: [ {
+    id: 'Student',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Student',
+    position: 10
+   } ]
+
+
+  @UI.lineItem: [ {
+    position: 10,
+    importance: #MEDIUM,
+    label: 'Student ID'
+  }, { 
+    type: #FOR_ACTION,
+    dataAction: 'delete',
+    label: 'Kein Treffer'
+  } ]
+  @UI.identification: [{
+    position: 10,
+    label: 'Student ID',
+    importance: #MEDIUM
+   }, { 
+    type: #FOR_ACTION,
+    dataAction: 'delete',
+    label: 'Kein Treffer'
+  }]
+  Id;
+  @UI.lineItem: [ {
+    position: 20,
+    importance: #MEDIUM,
+    label: 'First Name'
+  } ]
+  @UI.identification: [{
+    position: 20,
+    label: 'First Name',
+    importance: #MEDIUM
+   }]
+  @UI.selectionField: [{ position: 10 }]
+  Firstname;
+  @UI.lineItem: [ {
+    position: 30,
+    importance: #MEDIUM,
+    label: 'Last Name'
+  } ]
+  @UI.identification: [{
+    position: 30,
+    label: 'Last Name',
+    importance: #MEDIUM
+  }]
+  @UI.selectionField: [{ position: 20 }]
+  Lastname;
+  @UI.lineItem: [ {
+    position: 40,
+    importance: #MEDIUM,
+    label: 'Age'
+  } ]
+  @UI.identification: [{
+    position: 40,
+    label: 'Age',
+    importance: #MEDIUM
+  }]
+  Age;
+  @UI.lineItem: [ {
+    position: 50,
+    importance: #MEDIUM,
+    label: 'Course'
+  } ]
+  @UI.identification: [{
+    position: 50,
+    label: 'Course',
+    importance: #MEDIUM
+  }]
+  @UI.selectionField: [{ position: 30 }]
+  Course;
+  @UI.lineItem: [ {
+    position: 60,
+    importance: #MEDIUM,
+    label: 'Course Duration'
+  } ]
+  @UI.identification: [{
+    position: 60,
+    label: 'Course Duration',
+    importance: #MEDIUM
+  }]
+  Courseduration;
+  @UI.lineItem: [ {
+    position: 70,
+    importance: #MEDIUM,
+    label: 'Status'
+  }, { 
+    type: #FOR_ACTION,
+    dataAction: 'setAdmitted',
+    label: 'Set Admitted'
+  }, { 
+    type: #FOR_ACTION,
+    dataAction: 'unsetAdmitted',
+    label: 'Unset Admitted'
+  } ]
+  @UI.identification: [{
+    position: 70,
+    label: 'Status',
+    importance: #MEDIUM
+  }, { 
+    type: #FOR_ACTION,
+    dataAction: 'setAdmitted',
+    label: 'Set Admitted'
+  }, { 
+    type: #FOR_ACTION,
+    dataAction: 'unsetAdmitted',
+    label: 'Unset Admitted'
+  } ]
+  @UI.selectionField: [{ position: 40 }]
+  Status;
+  @UI.lineItem: [ {
+    position: 80,
+    importance: #MEDIUM,
+    label: 'Gender'
+  } ]
+  @UI.identification: [{
+    position: 80,
+    label: 'Gender',
+    importance: #MEDIUM
+  }]
+  @UI.selectionField: [{ position: 50 }]
+  Gender;
+  @UI.lineItem: [ {
+    position: 90,
+    importance: #MEDIUM,
+    label: 'DOB'
+  } ]
+  @UI.identification: [{
+    emphasized: true,
+    position: 90,
+    label: 'DOB',
+    importance: #MEDIUM
+  }]
+  Dob;
+  
+   
+}

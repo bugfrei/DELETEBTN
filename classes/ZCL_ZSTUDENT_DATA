@@ -1,0 +1,155 @@
+CLASS zcl_zstudent_data DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_zstudent_data IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+  DATA itab TYPE TABLE OF zstudent.
+  "Testkommentar XXX ABC
+
+
+  itab = VALUE #(
+    (
+      age = 25
+      course = 'Computer Science'
+      courseduration = 4
+      dob = '19950101'
+      firstname = 'John'
+      gender = 'm'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Doe'
+      status = 'X'
+ )
+    (
+      age = 30
+      course = 'Mathematics'
+      courseduration = 3
+      dob = '19900215'
+      firstname = 'Jane'
+      gender = 'f'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Smith'
+      status = ''
+ )
+    (
+      age = 35
+      course = 'Physics'
+      courseduration = 5
+      dob = '19850710'
+      firstname = 'David'
+      gender = 'm'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Johnson'
+      status = 'X'
+ )
+    (
+      age = 28
+      course = 'Chemistry'
+      courseduration = 4
+      dob = '19921120'
+      firstname = 'Emily'
+      gender = 'f'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Brown'
+      status = ''
+ )
+    (
+      age = 32
+      course = 'Biology'
+      courseduration = 3
+      dob = '19880405'
+      firstname = 'Michael'
+      gender = 'm'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Miller'
+      status = 'X'
+ )
+    (
+      age = 27
+      course = 'English'
+      courseduration = 2
+      dob = '19930925'
+      firstname = 'Olivia'
+      gender = 'f'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Davis'
+      status = ''
+ )
+    (
+      age = 31
+      course = 'History'
+      courseduration = 4
+      dob = '19890312'
+      firstname = 'Daniel'
+      gender = 'm'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Wilson'
+      status = 'X'
+ )
+    (
+      age = 29
+      course = 'Geography'
+      courseduration = 3
+      dob = '19910808'
+      firstname = 'Sophia'
+      gender = 'f'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Taylor'
+      status = ''
+ )
+    (
+      age = 33
+      course = 'Economics'
+      courseduration = 4
+      dob = '19870618'
+      firstname = 'Matthew'
+      gender = 'm'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Anderson'
+      status = 'X'
+ )
+    (
+      age = 26
+      course = 'Sociology'
+      courseduration = 3
+      dob = '19941230'
+      firstname = 'Ava'
+      gender = 'f'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Clark'
+      status = ''
+ )
+    (
+      age = 34
+      course = 'Psychology'
+      courseduration = 5
+      dob = '19860522'
+      firstname = 'James'
+      gender = 'm'
+      id = cl_system_uuid=>create_uuid_x16_static( )
+      lastname = 'Lee'
+      status = 'X'
+ )
+  ).
+
+  DELETE FROM zstudent.
+
+  INSERT zstudent FROM TABLE itab.
+
+  out->write( | { sy-dbcnt } entries inserted successfully | ).
+
+  ENDMETHOD.
+ENDCLASS.
+

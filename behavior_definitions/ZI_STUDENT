@@ -1,0 +1,32 @@
+managed implementation in class zbp_zi_student unique;
+strict ( 2 );
+
+define behavior for ZI_STUDENT alias Student
+persistent table zstudent
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) Id;
+  action ( features : instance ) setAdmitted result [1] $self;
+  action ( features : instance ) unsetAdmitted result [1] $self;
+  action ( features : instance ) delete result [1] $self;
+
+  mapping for zstudent
+    {
+      Id             = id;
+      Firstname      = firstname;
+      Lastname       = lastname;
+      Age            = age;
+      Course         = course;
+      Courseduration = courseduration;
+      Status         = status;
+      Gender         = gender;
+      Dob            = dob;
+    }
+
+}
